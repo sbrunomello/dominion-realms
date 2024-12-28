@@ -1,0 +1,7 @@
+{
+  "name": "dominion-nexus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
