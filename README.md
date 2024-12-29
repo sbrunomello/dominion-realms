@@ -69,7 +69,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## Contact
 
-For questions or feedback, please reach out to us via [email@example.com](mailto:developer.mello@gmail.com).
+For questions or feedback, please reach out to us via [developer.mello@gmail.com](mailto:developer.mello@gmail.com).
 
 ---
 
