@@ -1,0 +1,101 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 10px;
+  }
+  
+  .player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .player-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .resources {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .resource {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .main-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .map-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/map-background.jpg') no-repeat center;
+    background-size: cover;
+  }
+  
+  .city-map {
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 5px;
+  }
+  
+  .cell {
+    background-color: rgba(200, 200, 200, 0.8);
+    border: 1px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cell:hover {
+    background-color: rgba(150, 150, 150, 0.9);
+  }
+  
+  .cell.occupied {
+    background-color: rgba(0, 150, 0, 0.8);
+  }
+  
+  .side-panel {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 10px;
+  }
+  
+  .side-panel ion-button {
+    margin-top: 10px;
+  }
+  
+  .resources {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .resource {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem; /* Aumenta o tamanho dos emojis */
+    gap: 5px;
+  }
+  

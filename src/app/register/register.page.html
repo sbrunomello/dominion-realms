@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-container">
+    <ion-item>
+      <ion-label position="stacked">Nome do Jogador</ion-label>
+      <ion-input
+        [(ngModel)]="playerName"
+        placeholder="Digite seu nome"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Escolha sua Nação</ion-label>
+      <ion-select [(ngModel)]="selectedNation" placeholder="Selecione">
+        <ion-select-option
+          *ngFor="let nation of nations"
+          [value]="nation.name"
+        >
+          {{ nation.name }} - {{ nation.bonus }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" (click)="register()">Começar Jogo</ion-button>
+  </div>
+</ion-content>

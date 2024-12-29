@@ -1,2 +1,40 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+    --ion-color-primary: #6d4c41; /* Marrom Medieval */
+    --ion-color-secondary: #cbbf93; /* Bege Pergaminho */
+    --ion-color-tertiary: #8d6e63; /* Cinza Rústico */
+    --ion-color-dark: #212121; /* Preto Medieval */
+    --ion-color-light: #f4f4f4; /* Branco Pergaminho */
+  }
+
+
+  .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); // Ajusta com base no cabeçalho e rodapé
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr); // Alterar para 6 no caso da cidade
+    grid-template-rows: repeat(16, 1fr); // Alterar para 6 no caso da cidade
+    gap: 2px;
+    width: 90%; // Mantém o tamanho consistente para todos
+    max-width: 600px;
+    aspect-ratio: 1; // Sempre quadrado
+  }
+  
+  .cell {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 0.8rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .cell:hover {
+    background-color: #ddd;
+  }
+  

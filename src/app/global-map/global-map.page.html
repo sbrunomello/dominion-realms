@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Global Map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="map-container">
+    <div class="panel">
+      <div
+        class="grid"
+        [style.transform]="'translate(' + translateX + 'px, ' + translateY + 'px) ' + transformStyle"
+        (mousedown)="onMouseDown($event)"
+        (mousemove)="onMouseMove($event)"
+        (mouseup)="onMouseUp()"
+        (mouseleave)="onMouseUp()"
+        (wheel)="onWheel($event)"
+      >
+        <div
+          class="cell"
+          *ngFor="let cell of regions"
+          (click)="onCellClick(cell)"
+          [style.gridColumn]="cell.x + 1"
+          [style.gridRow]="cell.y + 1"
+        >
+          {{ cell.x }},{{ cell.y }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

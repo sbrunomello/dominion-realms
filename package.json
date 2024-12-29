@@ -1,5 +1,5 @@
 {
-  "name": "dominion-nexus",
+  "name": "dominion-realms",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -17,6 +17,7 @@
     "@angular/common": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
+    "@angular/fire": "^18.0.1",
     "@angular/forms": "^19.0.0",
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
@@ -27,7 +28,9 @@
     "@capacitor/keyboard": "6.0.3",
     "@capacitor/status-bar": "6.0.2",
     "@ionic/angular": "^8.0.0",
+    "firebase": "^11.1.0",
     "ionicons": "^7.0.0",
+    "mapbox-gl": "^3.9.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

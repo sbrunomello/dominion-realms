@@ -7,30 +7,30 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'global-map',
         loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          import('../global-map/global-map.page').then((m) => m.GlobalMapPage),
       },
       {
-        path: 'tab2',
+        path: 'region-map',
         loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('../region-map/region-map.page').then((m) => m.RegionMapPage),
       },
       {
-        path: 'tab3',
+        path: 'city',
         loadComponent: () =>
-          import('../tab3/tab3.page').then((m) => m.Tab3Page),
+          import('../city/city.page').then((m) => m.CityPage),
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/global-map',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/global-map',
     pathMatch: 'full',
   },
 ];

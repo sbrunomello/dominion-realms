@@ -1,0 +1,5 @@
+<div class="map-grid">
+  <div *ngFor="let cell of cells" (click)="onCellClick(cell)" class="map-cell">
+    <p>{{ cell.id }}</p>
+  </div>
+</div>

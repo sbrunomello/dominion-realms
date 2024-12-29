@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>City View</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-map [cells]="buildings"></app-map>
+
+  <ion-card *ngFor="let building of buildings">
+    <ion-card-header>
+      <ion-card-title>Building Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>ID: {{ building.id }}</p>
+      <p>Building: {{ building.building || 'Empty Slot' }}</p>
+      <p>Resource Bonus: {{ building.resourceBonus }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

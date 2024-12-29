@@ -12,3 +12,13 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)),
   ],
 });
+
+import { addIcons } from 'ionicons';
+import { constructOutline, nutritionOutline, hammerOutline, earthOutline } from 'ionicons/icons';
+
+addIcons({
+  'construct-outline': constructOutline,
+  'nutrition-outline': nutritionOutline,
+  'hammer-outline': hammerOutline,
+  'earth-outline': earthOutline,
+});
