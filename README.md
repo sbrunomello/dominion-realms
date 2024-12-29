@@ -18,7 +18,6 @@
 - **Front-end**: Ionic Framework, Angular
 - **Back-end**: Firebase Firestore and Authentication
 - **Blockchain**: Integrated Web3 for governance and tokenomics
-- **Design**: Interactive maps built with tools like Canvas and Leaflet.js
 
 ---
 
@@ -26,7 +25,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/dominion-realms.git
+   git clone https://github.com/sbrunomello/dominion-realms.git
    ```
 2. Navigate to the project directory:
    ```bash
