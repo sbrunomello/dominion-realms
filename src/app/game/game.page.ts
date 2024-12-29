@@ -16,6 +16,31 @@ export class GamePage {
   selectedCell: any = null; // Célula selecionada
   globalMap = mockRegions;
   currentView = 'city';
+  isModalOpen = false;
+
+  player = {
+    name: 'Capivara Master',
+    avatar: 'assets/avatar.jpg',
+    level: 6,
+    xp: 150,
+    nextLevelXp: 300,
+  };
+
+  menuButtons = [
+    { icon: 'map-outline' },
+    { icon: 'stats-chart-outline' },
+    { icon: 'bag-outline' },
+    { icon: 'construct-outline' },
+  ];
+
+  resources = [
+    { icon: '🌾', amount: 1000 },
+    { icon: '🌲', amount: 800 },
+    { icon: '⛏️', amount: 750 },
+    { icon: '⚒️', amount: 500 },
+    { icon: '💰', amount: 300 },
+  ];
+
   buildings = [
     { name: 'Farm', emoji: '🌾' },
     { name: 'Lumber Mill', emoji: '🪵' },
@@ -24,32 +49,24 @@ export class GamePage {
     { name: 'Gold Mine', emoji: '🏆' },
   ];
 
-  resources = [
-    { name: 'Food', emoji: '🍖', amount: 1000 },
-    { name: 'Wood', emoji: '🌲', amount: 800 },
-    { name: 'Stone', emoji: '🧱', amount: 750 },
-    { name: 'Iron', emoji: '⚒️', amount: 500 },
-    { name: 'Gold', emoji: '💰', amount: 300 },
-  ];
-
-  sidePanelTitle = 'Detalhes';
-  sidePanelContent = 'Selecione um espaço para construir.';
-
-  showCityMap() {
-    this.currentView = 'city';
-  }
-
-  showGlobalMap() {
-    this.currentView = 'global';
-  }
-
-  onCellClick(cell: any) {
+  openBuildModal(cell: any) {
     this.selectedCell = cell;
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 
   build(building: any) {
     if (this.selectedCell) {
       this.selectedCell.building = building.name;
     }
+    this.closeModal();
   }
+
+  get xpPercentage(): number {
+    return (this.player.xp / this.player.nextLevelXp) * 100;
+  }
+  
 }

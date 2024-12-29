@@ -1,77 +1,77 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Dominion Nexus</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="settings-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+  <div class="floating-hub">
+    <!-- Avatar e Detalhes do Jogador -->
+    <div class="player-profile">
+      <div class="player-name">{{ player.name }}</div>
+      <img [src]="player.avatar" alt="Avatar" class="avatar" />
+      <div class="player-details">
+
+        <div class="player-level">level {{ player.level }}</div>
+        <div class="xp-bar">
+          <div class="xp-progress" [style.width]="xpPercentage + '%'"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Botões e Recursos -->
+    <div class="hub-right">
+      <!-- Botões de Funções -->
+      <div class="menu-buttons">
+        <ion-button *ngFor="let button of menuButtons" class="menu-button">
+          <ion-icon [name]="button.icon"></ion-icon>
+        </ion-button>
+      </div>
+      <!-- Botões de Recursos -->
+      <div class="resource-buttons">
+        <ion-button *ngFor="let resource of resources" class="resource-button">
+          {{ resource.icon }} {{ resource.amount }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+
 </ion-header>
 
 <ion-content>
   <div class="game-container">
-    <!-- Barra Superior -->
-    <div class="top-bar">
-      <div class="player-info">
-        <ion-avatar>
-          <img src="../../assets/avatar.jpg" alt="Player Avatar">
-        </ion-avatar>
-        <div class="player-name">Capivara Master</div>
-      </div>
-      <div class="resources">
-        <div class="resource" *ngFor="let resource of resources">
-          <span>{{ resource.emoji }}</span> {{ resource.amount }}
-        </div>
-      </div>
-    </div>
-
-    <!-- Conteúdo Principal -->
     <div class="main-content">
       <!-- Mapa Central -->
       <div class="map-container">
         <div class="city-map" *ngIf="currentView === 'city'">
-          <div
-            class="cell"
-            *ngFor="let cell of cityMap"
-            [style.gridColumn]="cell.x + 1"
-            [style.gridRow]="cell.y + 1"
-            (click)="onCellClick(cell)"
-            [class.occupied]="cell.building"
-          >
+          <div class="cell" *ngFor="let cell of cityMap" [style.gridColumn]="cell.x + 1" [style.gridRow]="cell.y + 1"
+            (click)="openBuildModal(cell)" [class.occupied]="cell.building">
             <ion-icon *ngIf="cell.building" name="construct-outline"></ion-icon>
           </div>
         </div>
         <div class="global-map" *ngIf="currentView === 'global'">
-          <!-- Placeholder para o mapa global -->
           <p>Mapa Global Placeholder</p>
         </div>
       </div>
-
-      <!-- Painel Lateral -->
-      <div class="side-panel">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Detalhes</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <div *ngIf="selectedCell">
-              <p>Célula: {{ selectedCell.id }}</p>
-              <p>Construção: {{ selectedCell.building || 'Nenhuma' }}</p>
-              <ion-button
-                *ngFor="let building of buildings"
-                (click)="build(building)"
-              >
-                {{ building.emoji }} {{ building.name }}
-              </ion-button>
-            </div>
-            <div *ngIf="!selectedCell">
-              <p>Selecione uma célula para construir.</p>
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
     </div>
   </div>
-</ion-content>
 
+  <!-- Modal de Construção -->
+  <ion-modal [isOpen]="isModalOpen" (ionModalDidDismiss)="closeModal()">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Construções</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div *ngIf="selectedCell">
+        <p><strong>Célula:</strong> {{ selectedCell.id }}</p>
+        <p><strong>Construção:</strong> {{ selectedCell.building || 'Nenhuma' }}</p>
+        <div>
+          <ion-button *ngFor="let building of buildings" (click)="build(building)">
+            {{ building.emoji }} {{ building.name }}
+          </ion-button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal>
+</ion-content>
