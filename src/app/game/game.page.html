@@ -2,7 +2,6 @@
   <div class="floating-hub">
     <!-- Avatar e Detalhes do Jogador -->
     <div class="player-profile">
-      <div class="player-name">{{ player.name }}</div>
       <img [src]="player.avatar" alt="Avatar" class="avatar" />
       <div class="player-details">
 
@@ -74,4 +73,56 @@
       </div>
     </ion-content>
   </ion-modal>
+
+<!-- Painel Esquerdo -->
+<div class="side-panel left-panel">
+  <div class="panel-box">
+    <div class="panel-header">
+      <ion-icon name="people-outline"></ion-icon>
+      <span>Sem Aliança</span>
+    </div>
+    <div class="panel-content">
+      <p>Você ainda não tem uma aliança.</p>
+    </div>
+  </div>
+
+  <div class="panel-box">
+    <div class="panel-header">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>Info Box</span>
+    </div>
+    <div class="panel-content">
+      <p>Sua Plus Account expirou.</p>
+      <ion-button color="success" size="small">
+        <ion-icon name="cash-outline"></ion-icon> Ativar
+      </ion-button>
+    </div>
+  </div>
+</div>
+
+<!-- Painel Direito -->
+<div class="side-panel right-panel">
+  <div class="panel-box">
+    <div class="panel-header">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Cidade Atual</span>
+    </div>
+    <div class="panel-content">
+      <span>{{ player.name }}</span>
+
+      <p><strong>{{cityDetails.cityName}}</strong></p>
+    </div>
+  </div>
+  <div class="panel-box">
+    <div class="panel-header">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>{{cityDetails.title}}</span>
+    </div>
+    <div class="panel-content">
+      <p><strong>City {{cityDetails.cityCount}}:</strong> {{cityDetails.cityName}}</p>
+      <ion-progress-bar value={{cityDetails.progress}} color="success"></ion-progress-bar>
+    </div>
+  </div>
+</div>
+
 </ion-content>

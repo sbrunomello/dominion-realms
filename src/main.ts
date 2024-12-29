@@ -5,6 +5,10 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
+import { addIcons } from 'ionicons';
+import { constructOutline, nutritionOutline, hammerOutline, earthOutline, homeOutline, cashOutline, peopleOutline, mapOutline, statsChartOutline, bagOutline, informationCircleOutline } from 'ionicons/icons';
+
+
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -13,12 +17,17 @@ bootstrapApplication(AppComponent, {
   ],
 });
 
-import { addIcons } from 'ionicons';
-import { constructOutline, nutritionOutline, hammerOutline, earthOutline } from 'ionicons/icons';
 
 addIcons({
   'construct-outline': constructOutline,
   'nutrition-outline': nutritionOutline,
   'hammer-outline': hammerOutline,
   'earth-outline': earthOutline,
+  'home-outline' : homeOutline,
+  'cash-outline': cashOutline,
+  'people-outline' : peopleOutline,
+  'map-outline': mapOutline,
+  'stats-chart-outline' : statsChartOutline,
+  'bag-outline' : bagOutline,
+  'information-circle-outline': informationCircleOutline,
 });

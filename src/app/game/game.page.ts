@@ -68,5 +68,34 @@ export class GamePage {
   get xpPercentage(): number {
     return (this.player.xp / this.player.nextLevelXp) * 100;
   }
+
+  leftPanelData = [
+    {
+      title: "Sem Aliança",
+      icon: "people-outline",
+      content: "Você ainda não tem uma aliança.",
+      button: null,
+    },
+    {
+      title: "Info Box",
+      icon: "information-circle-outline",
+      content: "Sua Plus Account expirou.",
+      button: {
+        text: "Ativar",
+        icon: "cash-outline",
+        action: () => {
+          console.log("Ativar Plus Account");
+        },
+      },
+    },
+  ];
+
+  cityDetails = {
+    title: "Cidades",
+    icon: "home-outline",
+    cityCount: '1/1',
+    cityName: "Cidade da Capivara",
+    progress: 0.7,
+  };
   
 }
