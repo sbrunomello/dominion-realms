@@ -24,7 +24,8 @@
         <!-- Botões de Recursos -->
         <div class="resource-buttons">
           <ion-button *ngFor="let resource of resources" class="resource-button">
-            {{ resource.icon }} {{ resource.amount }}
+            <img [src]="resource.image" alt="Recurso" class="resource-icon" />
+            {{ resource.amount }}
           </ion-button>
         </div>
       </div>
@@ -70,11 +71,20 @@
            <p><strong>Pré-requisitos:</strong> {{ building.prerequisites }}</p>
            <p><strong>Tempo de construção:</strong> {{ building.buildTime }}</p>
            <div class="costs">
-             <p><ion-icon name="leaf-outline"></ion-icon> {{ building.costs.food }}</p>
-             <p><ion-icon name="hammer-outline"></ion-icon> {{ building.costs.wood }}</p>
-             <p><ion-icon name="cube-outline"></ion-icon> {{ building.costs.stone }}</p>
-             <p><ion-icon name="construct-outline"></ion-icon> {{ building.costs.iron }}</p>
-           </div>
+            <p *ngIf="building.costs.food">
+              <img src="/assets/meat.png" alt="Comida" class="cost-icon" /> {{ building.costs.food }}
+            </p>
+            <p *ngIf="building.costs.wood">
+              <img src="/assets/wood.png" alt="Madeira" class="cost-icon" /> {{ building.costs.wood }}
+            </p>
+            <p *ngIf="building.costs.stone">
+              <img src="/assets/stone.png" alt="Pedra" class="cost-icon" /> {{ building.costs.stone }}
+            </p>
+            <p *ngIf="building.costs.iron">
+              <img src="/assets/iron.png" alt="Ferro" class="cost-icon" /> {{ building.costs.iron }}
+            </p>
+          </div>
+          
            <ion-button color="success" (click)="build(building)">Construir</ion-button>
          </div>
        </div>

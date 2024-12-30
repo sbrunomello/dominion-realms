@@ -71,6 +71,18 @@
   display: flex;
   gap: 10px;
 }
+.cost-icon {
+  width: 20px; /* Tamanho da imagem */
+  height: 20px;
+  margin-right: 8px; /* Espaço entre a imagem e o texto */
+  vertical-align: middle; /* Alinhamento vertical */
+}
+
+.resource-icon {
+  width: 20px; /* Ajuste o tamanho da imagem */
+  height: 20px;
+  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+}
 
 .map-container {
   flex: 1;

@@ -67,12 +67,13 @@ export class GamePage {
   ];
 
   resources = [
-    { icon: '🌾', amount: 1000 },
-    { icon: '🌲', amount: 800 },
-    { icon: '⛏️', amount: 750 },
-    { icon: '⚒️', amount: 500 },
-    { icon: '💰', amount: 300 },
+    { image: '/assets/meat.png', amount: 1000 },
+    { image: '/assets/wood.png', amount: 800 },
+    { image: '/assets/stone.png', amount: 750 },
+    { image: '/assets/iron.png', amount: 500 },
+    { image: '/assets/gold.png', amount: 300 },
   ];
+  
 
   selectedTab: string = 'infra';
 
