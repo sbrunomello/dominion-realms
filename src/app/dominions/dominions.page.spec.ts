@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GlobalMapPage } from './global-map.page';
+import { DominionsPage } from './dominions.page';
 
-describe('GlobalMapPage', () => {
-  let component: GlobalMapPage;
-  let fixture: ComponentFixture<GlobalMapPage>;
+describe('DominionsPage', () => {
+  let component: DominionsPage;
+  let fixture: ComponentFixture<DominionsPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GlobalMapPage);
+    fixture = TestBed.createComponent(DominionsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

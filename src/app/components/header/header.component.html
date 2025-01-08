@@ -1,0 +1,26 @@
+<div class="header-container">
+  <div class="player-info">
+    <img [src]="player.avatar" alt="Avatar" class="avatar" />
+    <div class="player-details">
+      <h3>{{ player.name }}</h3>
+      <p>Nível {{ player.level }}</p>
+      <p>Poder: {{ player.power }}</p>
+    </div>
+  </div>
+  <div class="navigation-buttons">
+    <ion-button (click)="navigateTo('/city')">Cidade</ion-button>
+    <ion-button (click)="navigateTo('/statistics')">Estatísticas</ion-button>
+    <ion-button (click)="navigateTo('/faction')">Facção</ion-button>
+    <ion-button (click)="navigateTo('/dominions')">Dominions</ion-button>
+  </div>
+  <div class="economy-info">
+    <div class="economy-item">
+      <img src="/assets/gold.png" alt="Ouro" class="economy-icon" />
+      <span>GOLD: {{ player.gold }}</span>
+    </div>
+    <div class="economy-item">
+      <img src="/assets/token.png" alt="Token" class="economy-icon" />
+      <span>Token: ${{ player.token }}</span>
+    </div>
+  </div>
+</div>

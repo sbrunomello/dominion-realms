@@ -1,20 +1,110 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>City View</ion-title>
-  </ion-toolbar>
+  <h1 class="city-header">Minha Cidade</h1>
 </ion-header>
 
 <ion-content>
-  <app-map [cells]="buildings"></app-map>
+  <div class="city-layout">
+    <!-- Painel Esquerdo -->
+    <div class="city-info-panel">
+      <!-- Informações da Cidade -->
+      <div class="info-section">
+        <h3>Informações da Cidade</h3>
+        <div
+          class="badge"
+          [ngClass]="{ expanded: expandedBadge === 'info' }"
+          (click)="toggleBadge('info')"
+        >
+          <span class="badge-icon">🏰</span>
+          <span class="badge-text">População: {{ city.population }}</span>
+        </div>
+        <div
+          class="badge"
+          [ngClass]="{ expanded: expandedBadge === 'dailyProduction' }"
+          (click)="toggleBadge('dailyProduction')"
+        >
+          <span class="badge-icon">🌾</span>
+          <span class="badge-text">Produção: {{ city.dailyProduction }}</span>
+        </div>
+        <div
+          class="badge"
+          [ngClass]="{ expanded: expandedBadge === 'defense' }"
+          (click)="toggleBadge('defense')"
+        >
+          <span class="badge-icon">🛡️</span>
+          <span class="badge-text">Defesa: {{ city.defense }}</span>
+        </div>
+      </div>
 
-  <ion-card *ngFor="let building of buildings">
-    <ion-card-header>
-      <ion-card-title>Building Details</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>ID: {{ building.id }}</p>
-      <p>Building: {{ building.building || 'Empty Slot' }}</p>
-      <p>Resource Bonus: {{ building.resourceBonus }}</p>
-    </ion-card-content>
-  </ion-card>
+      <!-- Construções em Andamento -->
+      <div class="current-upgrades">
+        <h3>Em Progresso</h3>
+        <div
+          class="badge"
+          *ngFor="let upgrade of currentUpgrades"
+        >
+          <span class="badge-icon">⏳</span>
+          <span class="badge-text">{{ upgrade.name }} ({{ upgrade.timeLeft }})</span>
+          <progress max="100" [value]="upgrade.progress"></progress>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel Central -->
+    <div class="city-main-panel">
+      <div class="city-background">
+        <img src="../../assets/city-background.jpg" alt="Cidade" class="background-image" />
+      </div>
+    </div>
+
+    <!-- Painel Direito -->
+    <div class="city-upgrade-panel">
+      <!-- Construções -->
+      <div class="construction-section">
+        <h3>Construções</h3>
+        <div
+          class="badge"
+          [ngClass]="{ expanded: expandedBadge === construction.name }"
+          *ngFor="let construction of constructions"
+          (click)="toggleBadge(construction.name)"
+        >
+          <span class="badge-icon">🏗️</span>
+          <span class="badge-text">{{ construction.name }} (Nv {{ construction.level }})</span>
+          <div *ngIf="expandedBadge === construction.name" class="badge-details">
+            <p>Recursos necessários: {{ construction.cost }}</p>
+            <button (click)="upgradeBuilding(construction)">Atualizar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Militares -->
+      <div class="military-section">
+        <h3>Militares</h3>
+        <div
+          class="badge"
+          [ngClass]="{ expanded: expandedBadge === unit.name }"
+          *ngFor="let unit of militaryUnits"
+          (click)="toggleBadge(unit.name)"
+        >
+          <span class="badge-icon">⚔️</span>
+          <span class="badge-text">{{ unit.name }} (Nv {{ unit.level }})</span>
+          <div *ngIf="expandedBadge === unit.name" class="badge-details">
+            <p>Custo por unidade: {{ unit.trainCost }}</p>
+            <p>
+              <label for="quantity-{{ unit.name }}">Quantidade:</label>
+              <input
+                id="quantity-{{ unit.name }}"
+                type="range"
+                min="0"
+                [max]="unit.maxTrainable"
+                [(ngModel)]="unit.quantityToTrain"
+              />
+              <span>{{ unit.quantityToTrain }}</span>
+            </p>
+            <p>Custo total: {{ calculateTotalCost(unit) }}</p>
+            <button (click)="trainUnit(unit)">Treinar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

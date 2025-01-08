@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegionMapPage } from './region-map.page';
+import { StatisticsPage } from './statistics.page';
 
-describe('RegionMapPage', () => {
-  let component: RegionMapPage;
-  let fixture: ComponentFixture<RegionMapPage>;
+describe('StatisticsPage', () => {
+  let component: StatisticsPage;
+  let fixture: ComponentFixture<StatisticsPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegionMapPage);
+    fixture = TestBed.createComponent(StatisticsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -49,4 +49,8 @@ body {
   ion-content {
     --background: #444;
   }
+  html, body, ion-content, .scroll-y {
+    overflow-y: hidden!important; /* Desabilita o scroll */
+    height: 100%; /* Garante o ajuste para visualização */
+  }
   

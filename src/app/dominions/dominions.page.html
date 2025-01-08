@@ -1,0 +1,27 @@
+<ion-content>
+  <!-- Mapa Global -->
+  <div class="global-map-container">
+    <h2>Dominions Map</h2>
+    <div class="map-container">
+      <div class="map-background-frame"></div>
+      <div class="map-frame">
+        <div class="map-grid">
+          <div *ngFor="let cell of cells" class="map-cell" (click)="onCellClick(cell)">
+            {{ cell.id }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Painel de Votação -->
+  <div class="voting-panel" *ngIf="selectedRegion">
+    <h3>Decisões para Região {{ selectedRegion.id }}</h3>
+    <p>Controlada por: {{ selectedRegion.owner || 'Neutra' }}</p>
+    <div class="vote-options">
+      <button (click)="vote('attack')">Atacar</button>
+      <button (click)="vote('defend')">Defender</button>
+      <button (click)="vote('spy')">Espionar</button>
+    </div>
+  </div>
+</ion-content>

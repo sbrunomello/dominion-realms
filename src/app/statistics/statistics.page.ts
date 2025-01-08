@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-governant',
-  templateUrl: './governant.page.html',
-  styleUrls: ['./governant.page.scss'],
+  selector: 'app-statistics',
+  templateUrl: './statistics.page.html',
+  styleUrls: ['./statistics.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
-export class GovernantPage implements OnInit {
+export class StatisticsPage implements OnInit {
 
   constructor() { }
 
